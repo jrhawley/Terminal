@@ -70,3 +70,5 @@ alias cic='set completion-ignore-case On'   # cic           Make tab-completion 
 
 alias qfind="find . -name "                 # qfind         Quickly search for file
 alias gst='git status'                      # gst           Shortcut for git status
+alias showhidden="defaults write com.apple.finder AppleShowAllFinder YES"   # Show hidden files in Finder
+alias hidehidden="defaults write com.apple.finder AppleShowAllFinder NO"    # Show hidden files in Finder
