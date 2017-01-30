@@ -75,3 +75,16 @@ function extract {
         fi
     fi
 }
+
+function less-tsv {
+    if [ -z "$1" ]; then
+        # display usage if no parameters given
+        echo "Usage: less-tsv TSV"
+    else
+        if [ -f $1 ]; then
+            column -s, -t < $1 | less -#2 -N -S
+        else
+            echo "$1 - file does not exist"
+        fi
+    fi
+}
