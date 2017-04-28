@@ -21,13 +21,14 @@ alias .5='cd ../../../../../'               # Go back 5 directory levels
 alias .6='cd ../../../../../../'            # Go back 6 directory levels
 alias ~="cd ~"                              # ~:            Go Home
 
-alias edit='subl'                           # edit:         Opens any file in sublime editor
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias which='type -all'                     # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 alias show_options='shopt'                  # Show_options: display bash options settings
 alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
 alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
+alias qfind="find . -name "                 # qfind         Quickly search for file
+alias gst='git status'                      # gst           Shortcut for git status
 
 alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
 alias make1mb='mkfile 1m ./1MB.dat'         # make1mb:      Creates a file of 1mb size (all zeros)
@@ -41,6 +42,10 @@ alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out th
 alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on connections for en0
 alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
+
+# Mac
+alias showhidden="defaults write com.apple.finder AppleShowAllFinder YES"   # Show hidden files in Finder
+alias hidehidden="defaults write com.apple.finder AppleShowAllFinder NO"    # Show hidden files in Finder
 
 # SGE
 alias qr='qrsh -q lupiengroup -now no -l h_vmem=5G -l mem_requested=5G'
