@@ -1,6 +1,0 @@
-In Preferences > Settings > Keyboard set
-
-Home (up left arrow) to \033OH
-End (down right arrow) to \033OF
-
-http://apple.stackexchange.com/questions/16135/remap-home-and-end-to-beginning-and-end-of-line
