@@ -20,6 +20,12 @@ set incsearch
 map [ :COPY<CR>
 map ] :UCOPY<CR>
 
+" NH shortcuts for easily viewing TSVs
+:command COL set tabstop=60 <bar> set nowrap
+:command UNCOL set tabstop=4 <bar> set wrap
+nmap <F7> :COL<CR>
+nmap <F6> :UNCOL<CR>
+
 " map \s to find/replace  word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
