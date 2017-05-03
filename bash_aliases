@@ -49,6 +49,8 @@ alias hidehidden="defaults write com.apple.finder AppleShowAllFinder NO"    # Sh
 
 # SGE
 alias qr='qrsh -q lupiengroup -now no -l h_vmem=5G -l mem_requested=5G'
+alias qrl='qrsh -q light.q -now no'
+alias qrd='qrsh -q download.q'
 
 # Programs
 alias gst='git status'
