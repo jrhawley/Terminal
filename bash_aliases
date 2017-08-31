@@ -8,53 +8,50 @@ alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
 alias la='ls -A'
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
-alias qfind="find . -name "                 # qfind:    Quickly search for file
-alias c='clear'                             # c:            Clear terminal display
+alias qfind="find . -name "                 # qfind: Quickly search for file
+alias c='clear'                             # c:     Clear terminal display
 
 # Navigation
-alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
-alias ..='cd ../'                           # Go back 1 directory level
-alias ...='cd ../../'                       # Go back 2 directory levels
-alias .3='cd ../../../'                     # Go back 3 directory levels
-alias .4='cd ../../../../'                  # Go back 4 directory levels
-alias .5='cd ../../../../../'               # Go back 5 directory levels
-alias .6='cd ../../../../../../'            # Go back 6 directory levels
-alias ~="cd ~"                              # ~:            Go Home
+alias cd..='cd ../'              # Go back 1 directory level (for fast typers)
+alias ..='cd ../'                # Go back 1 directory level
+alias ...='cd ../../'            # Go back 2 directory levels
+alias .3='cd ../../../'          # Go back 3 directory levels
+alias .4='cd ../../../../'       # Go back 4 directory levels
+alias .5='cd ../../../../../'    # Go back 5 directory levels
+alias .6='cd ../../../../../../' # Go back 6 directory levels
+alias ~="cd ~"                   # Go Home
 
-alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
-alias which='type -all'                     # which:        Find executables
-alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
-alias show_options='shopt'                  # Show_options: display bash options settings
-alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
-alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
-alias qfind="find . -name "                 # qfind         Quickly search for file
-alias gst='git status'                      # gst           Shortcut for git status
-
+# Miscellaneous tools
+alias f='open -a Finder ./'         # Opens current directory in MacOS Finder
+alias which='type -all'             # Find executables
+alias path='echo -e ${PATH//:/\\n}' # Echo all executable Paths
+alias show_options='shopt'          # display bash options settings
+alias fix_stty='stty sane'          # Restore terminal settings when screwed up
 alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
-alias make1mb='mkfile 1m ./1MB.dat'         # make1mb:      Creates a file of 1mb size (all zeros)
-alias make5mb='mkfile 5m ./5MB.dat'         # make5mb:      Creates a file of 5mb size (all zeros)
-alias make10mb='mkfile 10m ./10MB.dat'      # make10mb:     Creates a file of 10mb size (all zeros)
+alias duh='du -h --max-depth 1'
 
 # Network
-alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
-alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
-alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
-alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on connections for en0
-alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
-alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
-
-# Mac
-alias showhidden="defaults write com.apple.finder AppleShowAllFinder YES"   # Show hidden files in Finder
-alias hidehidden="defaults write com.apple.finder AppleShowAllFinder NO"    # Show hidden files in Finder
+alias myip='curl ip.appspot.com'                    # Public facing IP Address
+alias netCons='lsof -i'                             # Show all open TCP/IP sockets
+alias flushDNS='dscacheutil -flushcache'            # Flush out the DNS Cache
+alias ipInfo0='ipconfig getpacket en0'              # Get info on connections for en0
+alias ipInfo1='ipconfig getpacket en1'              # Get info on connections for en1
+alias openPorts='sudo lsof -i | grep LISTEN'        # All listening connections
 
 # SGE
-alias qr='qrsh -q lupiengroup -now no -l h_vmem=5G -l mem_requested=5G'
-alias qrl='qrsh -q light.q -now no'
-alias qrd='qrsh -q download.q'
+alias qrL='qlogin -q lupiengroup -l h_vmem=5G -l mem_requested=5G'
+alias qrl='qlogin -q light.q'
+alias qrd='qlogin -q download.q'
+alias qsL='qstat -q lupiengroup -u "*"'
+alias qsl='qstat -q light.q -u "*"'
+alias qsd='qstat -q download.q -u "*"'
+alias qsH='qstat -q highmem.q -u "*"'
+alias qst='qstat'
 
-# Programs
+# Git
 alias gst='git status'
 
+# Functions
 function extract {
     if [ -z "$1" ]; then
         # display usage if no parameters given
@@ -85,15 +82,10 @@ function extract {
     fi
 }
 
-function less-tsv {
-    if [ -z "$1" ]; then
-        # display usage if no parameters given
-        echo "Usage: less-tsv TSV"
-    else
-        if [ -f $1 ]; then
-            column -s, -t < $1 | less -#2 -N -S
-        else
-            echo "$1 - file does not exist"
-        fi
-    fi
+function forensics {
+    qacct -j $1 | grep -B 9 -P "exit_status\\s+[1-9]";
+}
+
+function scpm {
+    scp hawleyj@opennet-33-233.uhnres.utoronto.ca:$1 $2
 }
