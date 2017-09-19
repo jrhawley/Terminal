@@ -18,3 +18,8 @@ Place each of the other files in your home directory as `.bash_aliases`, `.vimrc
 source ~/.bashrc
 ```
 will complete the rest of the environment, and load these settings for use.
+
+## Anaconda
+
+To make R and Python packages manageable, I use Anaconda.
+These files can be found in `Anaconda/`.
