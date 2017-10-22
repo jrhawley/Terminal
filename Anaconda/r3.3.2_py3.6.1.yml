@@ -1,4 +1,4 @@
-name: root
+name: r332_py361
 channels:
 - r
 - bioconda

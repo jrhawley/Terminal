@@ -14,9 +14,11 @@ Placing `DefaultKeyBinding.dict` into `~/Library/KeyBindings/` may or may not wo
 ## Linux and Mac settings
 
 Place each of the other files in your home directory as `.bash_aliases`, `.vimrc`, `.tmux.conf`, and `.bash_aliases`. Running
-```
+
+```shell
 source ~/.bashrc
 ```
+
 will complete the rest of the environment, and load these settings for use.
 
 ## Anaconda
