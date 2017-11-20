@@ -10,6 +10,7 @@ alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
 alias qfind="find . -name "                 # qfind: Quickly search for file
 alias c='clear'                             # c:     Clear terminal display
+alias duh='du -h --max-depth 1'             # Size on disk of current directory
 
 # Navigation
 alias cd..='cd ../'              # Go back 1 directory level (for fast typers)
@@ -21,25 +22,9 @@ alias .5='cd ../../../../../'    # Go back 5 directory levels
 alias .6='cd ../../../../../../' # Go back 6 directory levels
 alias ~="cd ~"                   # Go Home
 
-# Miscellaneous tools
-alias f='open -a Finder ./'            # Opens current directory in MacOS Finder
-alias which='type -all'                # Find executables
-alias path='echo -e ${PATH//:/\\n}'    # Echo all executable Paths
-alias show_options='shopt'             # display bash options settings
-alias fix_stty='stty sane'             # Restore terminal settings when screwed up
-alias numFiles='echo $(ls -1 | wc -l)' # Count of non-hidden files in current dir
-alias duh='du -h --max-depth 1'        # Size on disk of current directory
-
-# Network
-alias myip='curl ip.appspot.com'             # Public facing IP Address
-alias netCons='lsof -i'                      # Show all open TCP/IP sockets
-alias flushDNS='dscacheutil -flushcache'     # Flush out the DNS Cache
-alias ipInfo0='ipconfig getpacket en0'       # Get info on connections for en0
-alias ipInfo1='ipconfig getpacket en1'       # Get info on connections for en1
-alias openPorts='sudo lsof -i | grep LISTEN' # All listening connections
-
 # SGE
 alias qrL='qlogin -q lupiengroup -l h_vmem=5G -l mem_requested=5G'
+alias qrLM='qlogin -q lupiengroup -l h_vmem=15G -l mem_requested=15G'
 alias qrl='qlogin -q light.q'
 alias qrd='qlogin -q download.q'
 alias qsL='qstat -q lupiengroup -u "*"'
