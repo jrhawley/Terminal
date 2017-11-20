@@ -86,6 +86,10 @@ function forensics {
     qacct -j $1 | grep -B 9 -P "exit_status\\s+[1-9]";
 }
 
+function lastjob {
+    qacct -o `whoami` -j | tail -n 45 | grep "jobnumber" | awk '{print $2;}';
+}
+
 function scpm {
     scp hawleyj@opennet-33-233.uhnres.utoronto.ca:$1 $2
 }
