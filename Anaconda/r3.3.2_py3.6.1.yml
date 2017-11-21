@@ -298,4 +298,3 @@ dependencies:
   - prompt-toolkit==1.0.14
   - rope-py3k==0.9.4.post1
   - tables==3.3.0
-prefix: /mnt/work1/users/home2/hawleyj/anaconda3
