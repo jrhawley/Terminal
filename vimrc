@@ -5,11 +5,10 @@ set helplang=en
 
 filetype plugin on
 set list listchars=tab:\|_,trail:.
-set list
 set number
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 set autoindent
 set hlsearch
 set incsearch
