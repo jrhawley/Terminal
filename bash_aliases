@@ -35,6 +35,7 @@ alias qst='qstat'
 
 # Git
 alias gst='git status'
+alias glg='git log --all --graph'
 
 # Functions
 function extract {
