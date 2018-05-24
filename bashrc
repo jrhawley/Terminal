@@ -124,3 +124,8 @@ fi
 if [[ ! $TERM =~ screen ]]; then
     exec tmux
 fi
+
+# added by Anaconda3 5.0.1 installer
+. /Users/hawleyj/anaconda3/etc/profile.d/conda.sh
+conda activate base
+export DYLD_FALLBACK_LIBRARY_PATH=/Users/hawleyj/anaconda3/lib:/usr/local/lib:/usr/lib:$DYLD_FALLBACK_LIBRARY_PATH
