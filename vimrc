@@ -28,6 +28,4 @@ nmap <F7> :UNCOL<CR>
 " map \s to find/replace  word under cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
-inoremap jk <ESC>
-
 hi Tab guifg=green
