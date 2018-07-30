@@ -29,3 +29,26 @@ nmap <F7> :UNCOL<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 hi Tab guifg=green
+
+" vim-plug
+" ==============================================================================
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Specify directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" vim-plug
+Plug 'junegunn/vim-plug'
+
+" Easy align
+Plug 'junegunn/vim-easy-align'
+
+" Rainbow CSV
+Plug 'mechatroner/rainbow_csv'
+
+call plug#end()
