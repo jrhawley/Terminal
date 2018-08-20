@@ -81,5 +81,5 @@ function lastjob {
 function scpm {
     scp hawleyj@opennet-33-233.uhnres.utoronto.ca:$1 $2
 }
-alias mount-mordor="sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/People/hawleyj/ $HOME/Mordor && sshfs hawleyj@mordor:/mnt/work1/users/home2/hawleyj/ $HOME/Cluster && sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/People $HOME/Lupiengroup"
-alias umount-mordor="umount -f $HOME/Mordor && umount -f $HOME/Cluster && umount -f $HOME/Lupiengroup"
+alias mount-mordor="sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/People/hawleyj/ $HOME/Mordor;  sshfs hawleyj@mordor:/mnt/work1/users/home2/hawleyj/ $HOME/Cluster;  sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/People $HOME/Lupiengroup"
+alias umount-mordor="umount -f $HOME/Mordor;  umount -f $HOME/Cluster;  umount -f $HOME/Lupiengroup"
