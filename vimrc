@@ -12,6 +12,7 @@ set expandtab
 set autoindent
 set hlsearch
 set incsearch
+syntax on
 
 " NH shortcuts for hiding numbers
 :command UCOPY set list <bar> set number <bar> set nopaste
@@ -52,7 +53,7 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " vim-snippets
-" =============================================================================
+" ==============================================================================
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
