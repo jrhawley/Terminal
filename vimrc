@@ -41,14 +41,25 @@ endif
 " Specify directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
-
-" vim-plug
 Plug 'junegunn/vim-plug'
-
-" Easy align
 Plug 'junegunn/vim-easy-align'
-
-" Rainbow CSV
 Plug 'mechatroner/rainbow_csv'
-
+Plug 'SirVer/ultisnips'
+Plug 'jrhawley/vim-snippets'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+" vim-snippets
+" =============================================================================
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" vim-airline-themes
+" ==============================================================================
+let g:airline_theme='violet'
+let g:airline_solarized_bg='dark'
