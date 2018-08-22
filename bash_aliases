@@ -67,19 +67,19 @@ function extract {
             echo "$1 - file does not exist"
         fi
     fi
-}
+};
 
 function forensics {
     qacct -j $1 | grep -B 9 -P "exit_status\\s+[1-9]";
-}
+};
 
 function lastjob {
     qacct -o `whoami` -j | tail -n 45 | grep "jobnumber" | awk '{print $2;}';
-}
+};
 
 # Cluster
 function scpm {
     scp hawleyj@opennet-33-233.uhnres.utoronto.ca:$1 $2
-}
+};
 alias mount-mordor="sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/People/hawleyj/ $HOME/Mordor;  sshfs hawleyj@mordor:/mnt/work1/users/home2/hawleyj/ $HOME/Cluster;  sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/People $HOME/Lupiengroup"
 alias umount-mordor="umount -f $HOME/Mordor;  umount -f $HOME/Cluster;  umount -f $HOME/Lupiengroup"
