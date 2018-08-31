@@ -38,6 +38,9 @@ alias gst='git status'
 alias glg='git log --all --graph'
 alias gbl='git branch --list'
 
+# Snakemake
+alias snkplt='snakemake --rulegraph | graph-easy --as boxart'
+
 # Functions
 function extract {
     if [ -z "$1" ]; then

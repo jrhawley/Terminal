@@ -15,7 +15,7 @@ fi
 
 while true; do
     clear
-    python3 ./qavail.py "$TO_MONITOR"
+    python ./qavail.py "$TO_MONITOR"
     echo
     qstat -g c
 
