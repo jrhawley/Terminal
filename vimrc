@@ -50,6 +50,7 @@ Plug 'jrhawley/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
+Plug 'bioSyntax/bioSyntax-vim'
 call plug#end()
 
 " vim-snippets
