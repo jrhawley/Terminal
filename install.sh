@@ -1,5 +1,5 @@
 
-STDFILES=(bash_aliases vimrc tmux.conf)
+STDFILES=(bash_aliases vimrc tmux.conf zshrc)
 for f in ${STDFILES[@]};
 do
     if [ -e $HOME/.$f ]; then
