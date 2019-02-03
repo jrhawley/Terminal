@@ -125,3 +125,7 @@ fi
 . $HOME/anaconda3/etc/profile.d/conda.sh
 conda activate base
 export DYLD_FALLBACK_LIBRARY_PATH=$HOME/anaconda3/lib:/usr/local/lib:/usr/lib:$DYLD_FALLBACK_LIBRARY_PATH
+
+pycd () {
+    pushd `python -c "import os.path, $1; print(os.path.dirname($1.__file__))"`;
+}
