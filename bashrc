@@ -120,12 +120,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# added by Anaconda3 5.0.1 installer
-. $HOME/anaconda3/etc/profile.d/conda.sh
-conda activate base
-export DYLD_FALLBACK_LIBRARY_PATH=$HOME/anaconda3/lib:/usr/local/lib:/usr/lib:$DYLD_FALLBACK_LIBRARY_PATH
-
-pycd () {
-    pushd `python -c "import os.path, $1; print(os.path.dirname($1.__file__))"`;
-}

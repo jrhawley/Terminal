@@ -80,9 +80,15 @@ function lastjob {
     qacct -o `whoami` -j | tail -n 45 | grep "jobnumber" | awk '{print $2;}';
 };
 
+function pycd {
+    pushd `python -c "import os.path, $1; print(os.path.dirname($1.__file__))"`;
+};
+
+
 # Cluster
 function scpm {
     scp hawleyj@opennet-33-233.uhnres.utoronto.ca:$1 $2
 };
+
 alias mount-mordor="sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/People/hawleyj/ $HOME/Mordor;  sshfs hawleyj@mordor:/mnt/work1/users/home2/hawleyj/ $HOME/Cluster;  sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/People $HOME/Lupiengroup"
 alias umount-mordor="umount -f $HOME/Mordor;  umount -f $HOME/Cluster;  umount -f $HOME/Lupiengroup"

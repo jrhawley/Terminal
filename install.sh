@@ -1,29 +1,31 @@
+#!/bin/bash
+STDFILES=(bash_aliases vimrc tmux.conf)
 
-STDFILES=(bash_aliases vimrc tmux.conf zshrc)
+function backup_cp {
+    today=$(date -I)
+    if [ -e $2 ]; then
+        mv $2 $2.${today}.bak
+    fi
+    cp $1 $2
+}
+
 for f in ${STDFILES[@]};
 do
-    if [ -e $HOME/.$f ]; then
-        mv $HOME/.$f $HOME/.$f.bak
-    fi
-    ln $f $HOME/.$f
+    backup_cp $f $HOME/.$f
 done
 
-## change what it's named as, depending on OS
-if [ "$(uname)" == "Darwin" ]; then
-    if [ -e $HOME/.bash_profile ]; then
-        mv $HOME/.bash_profile $HOME/.bash_profile.bak
+if [ $SHELL == "bash" ]; then
+    ## change what it's named as, depending on OS
+    if [ "$(uname)" == "Darwin" ]; then
+        backup_cp bashrc $HOME/.bash_profile
+        backup_cp DefaultKeyBinding.dict $HOME/Library/KeyBindings/DefaultKeyBinding.dict
+        source $HOME/.bash_profile
+    else
+        backup_cp bashrc $HOME/.bashrc
+        source $HOME/.bashrc
     fi
-    ln bashrc $HOME/.bash_profile
-    ln $HOME/.bash_profile $HOME/.bashrc
-    cp DefaultKeyBinding.dict $HOME/Library/KeyBindings/
-
-    source $HOME/.bash_profile
-else
-    if [ -e $HOME/.bashrc ]; then
-        mv $HOME/.bashrc $HOME/.bashrc.bak
-    fi
-    ln bashrc $HOME/.bashrc
-    source $HOME/.bashrc
+elif [ $SHELL == "zsh" ]; then
+    backup_cp zshrc $HOME/.zshrc
 fi
 
 echo "Done installation"
