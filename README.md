@@ -26,3 +26,5 @@ These files can be found in `Anaconda/`.
 ## SGE
 
 A collection of scripts that are useful for SGE environments can be found here.
+This will be updated to include SLURM and PBS/Torque engines, eventually.
+
