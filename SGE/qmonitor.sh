@@ -14,7 +14,7 @@ if [ "$#" -eq 1 ]; then
 fi
 
 while true; do
-    clear
+    clear && printf '\e[3J'
     python ./qavail.py "$TO_MONITOR"
     echo
     qstat -g c
