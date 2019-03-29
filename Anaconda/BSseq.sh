@@ -56,3 +56,6 @@ conda install r-argparse
 conda install conda-forge::r-upsetr
 conda install conda-forge::r-pheatmap
 conda install click future jinja2 lzstring markdown
+conda install conda-forge::simplejson=3.16.0
+conda install conda-forge::spectra
+conda install bioconda::multiqc=1.7
