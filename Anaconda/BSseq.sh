@@ -51,3 +51,8 @@ git clone https://github.com/kdkorthauer/dmrseq.git
 pushd dmrseq
 R CMD INSTALL .
 popd && popd
+
+conda install r-argparse
+conda install conda-forge::r-upsetr
+conda install conda-forge::r-pheatmap
+conda install click future jinja2 lzstring markdown
