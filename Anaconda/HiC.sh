@@ -48,3 +48,12 @@ pushd TADbit-0.4
 python setup.py install
 popd; popd
 
+conda install bioconda::bedtools=2.23.0
+conda install bioconda::biopython
+conda install bioconda::bioconductor-genomicranges
+conda install r-argparse r-data.table
+conda install r-devtools
+conda install r-nlme r-mgcv r-rspectra
+conda install r-ggplot2
+conda install bioconda::multiqc=1.7
+
