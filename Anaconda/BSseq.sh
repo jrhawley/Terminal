@@ -60,3 +60,5 @@ conda install conda-forge::simplejson=3.16.0
 conda install conda-forge::spectra
 conda install bioconda::multiqc=1.7
 conda install bioconda::bioconductor-minfi
+conda install bioconda::bioconductor-illuminahumanmethylationepicmanifest=0.3.0
+
