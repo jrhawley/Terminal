@@ -11,7 +11,11 @@ conda install bioconda::fastqc
 conda install bioconda::bowtie2
 conda install bioconda::snakemake-minimal conda-forge::ratelimiter
 conda install pandas
-
 conda install ucsc-bedclip
+conda install pysam
 
 # bioconductor
+conda install -c bioconda bioconductor-edger bioconductor-diffbind bioconductor-deseq2
+
+conda install pybedtools
+conda install scipy
