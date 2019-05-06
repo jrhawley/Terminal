@@ -56,4 +56,8 @@ conda install r-devtools
 conda install r-nlme r-mgcv r-rspectra
 conda install r-ggplot2
 conda install bioconda::multiqc=1.7
+conda install bioconda::seqtk
+conda install bamtools
 
+conda install r-roxygen2
+conda install r-bit64
