@@ -1,5 +1,7 @@
 conda create -n BSseq
 conda activate BSseq
+conda config --env --add channels bioconda
+conda config --env --add channels conda-forge
 
 # no dependencies
 conda install bioconda::methyldackel
@@ -18,8 +20,6 @@ conda install pandas
 conda install r-base=3.5.1
 
 # bioconductor
-conda config --env --add channels bioconda
-conda config --env --add channels conda-forge
 conda install r-biocmanager
 
 #   install all of its appropriate dependencies
@@ -38,6 +38,11 @@ conda install bioconductor-rsamtools
 conda install bioconductor-summarizedexperiment
 
 # modified bioconductor-genomeinfodbdata-.../info/recipe/post-link.sh to ignore MD5sum check, since it was failing for some reason
+# add the following to $CONDA_PREFIX/conda-meta/pinned:
+# curl=7.64.0
+# krb5=1.16.3
+# libcurl=7.64.0
+# libssh2=1.8.0
 
 conda install bioconductor-bsseq
 conda install bioconductor-bumphunter
