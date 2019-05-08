@@ -49,14 +49,6 @@ conda install bioconductor-bumphunter
 conda install bioconductor-annotationhub
 conda install bioconductor-annotatr
 
-
-# install latest version of dmrseq from GitHub
-pushd $HOME/Source
-git clone https://github.com/kdkorthauer/dmrseq.git 
-pushd dmrseq
-R CMD INSTALL .
-popd && popd
-
 conda install r-argparse
 conda install conda-forge::r-upsetr
 conda install conda-forge::r-pheatmap
@@ -69,3 +61,4 @@ conda install bioconda::bioconductor-illuminahumanmethylationepicmanifest=0.3.0
 conda install bioconda::bioconductor-illuminahumanmethylationepicanno.ilm10b4.hg19
 
 conda install r-viridis
+conda install jrhawley::dmrseq
