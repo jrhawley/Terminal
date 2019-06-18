@@ -8,26 +8,15 @@ conda config --env --add channels conda-forge
 # some dependencies
 conda install bwa
 conda install openjdk
+conda install bowtie2
 conda install bioconda::sambamba
 conda install bioconda::samtools
 conda install bioconda::snakemake-minimal
 conda install pandas
 conda install bioconda::fastqc
-conda install bioconda::hicup
+conda install jrhawley::hicup #(v0.7.2)
 
 conda install scipy matplotlib
-
-# Juicer
-pushd $CONDA_PREFIX/bin/
-curl -O http://hicfiles.tc4ga.com.s3.amazonaws.com/public/juicer/juicer_tools.1.8.9_jcuda.0.8.jar
-popd
-
-# HiCUP (v0.7.2)
-pushd $HOME/Source/
-curl -O http://www.bioinformatics.babraham.ac.uk/projects/hicup/hicup_v0.7.2.tar.gz
-tar -xvzf hicup_v0.7.2.tar.gz
-## add this directory to PATH in $CONDA_PREFIX/etc/conda/{de,}activate.d/env_vars.sh
-popd
 
 # TADbit
 #   IMP package
@@ -61,3 +50,7 @@ conda install bamtools
 
 conda install r-roxygen2
 conda install r-bit64
+conda install r-irlba
+conda install bioconda::cooler
+conda install bioconda::pairtools
+conda install bioconda::seqkit
