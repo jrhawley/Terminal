@@ -54,3 +54,4 @@ conda install r-irlba
 conda install bioconda::cooler
 conda install bioconda::pairtools
 conda install bioconda::seqkit
+conda install tqdm
