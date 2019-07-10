@@ -62,3 +62,5 @@ conda install bioconda::bioconductor-illuminahumanmethylationepicanno.ilm10b4.hg
 
 conda install r-viridis
 conda install jrhawley::dmrseq
+conda install bioconda::bioconductor-illuminahumanmethylation450kmanifest
+conda install bioconda::bioconductor-illuminahumanmethylation450kanno.ilmn12.hg19
