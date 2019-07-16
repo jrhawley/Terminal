@@ -19,3 +19,4 @@ conda install -c bioconda bioconductor-edger bioconductor-diffbind bioconductor-
 
 conda install pybedtools
 conda install scipy
+conda install r-dunn.test
