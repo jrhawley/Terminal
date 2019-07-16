@@ -64,3 +64,5 @@ conda install r-viridis
 conda install jrhawley::dmrseq
 conda install bioconda::bioconductor-illuminahumanmethylation450kmanifest
 conda install bioconda::bioconductor-illuminahumanmethylation450kanno.ilmn12.hg19
+conda install bioconductor-bsgenome.hsapiens.ucsc.hg38
+conda install bioconductor-bsgenome.hsapiens.ucsc.hg19
