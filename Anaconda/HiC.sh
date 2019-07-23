@@ -55,3 +55,4 @@ conda install bioconda::cooler
 conda install bioconda::pairtools
 conda install bioconda::seqkit
 conda install tqdm
+conda install conda-forge::eigen

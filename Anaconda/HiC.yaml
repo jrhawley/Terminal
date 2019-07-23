@@ -45,7 +45,7 @@ dependencies:
   - bzip2=1.0.6
   - ca-certificates=2019.6.16
   - cairo=1.14.12
-  - certifi=2019.3.9
+  - certifi=2019.6.16
   - cffi=1.12.2
   - cgal=4.13
   - cgal-cpp=4.13
@@ -69,6 +69,7 @@ dependencies:
   - distributed=1.28.1
   - docutils=0.14
   - dryhic=0.1
+  - eigen=3.3.7
   - expat=2.2.5
   - fastqc=0.11.8
   - ffmpeg=4.0.2
@@ -155,7 +156,7 @@ dependencies:
   - openblas=0.3.5
   - openh264=1.8.0
   - openjdk=11.0.1
-  - openssl=1.1.1b
+  - openssl=1.1.1c
   - packaging=19.0
   - pairix=0.3.7
   - pandas=0.24.2
