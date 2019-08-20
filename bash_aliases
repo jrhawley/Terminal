@@ -33,6 +33,10 @@ alias qsd='qstat -q download.q -u "*"'
 alias qsH='qstat -q highmem.q -u "*"'
 alias qst='qstat'
 
+# Slurm
+alias sr='salloc -c 1 -t 1-00:00:00 --mem=6G'
+alias sst='squeue'
+
 # Git
 alias gst='git status'
 alias glg='git log --all --graph'
