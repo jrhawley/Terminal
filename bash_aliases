@@ -46,6 +46,10 @@ alias gbl='git branch --list'
 alias snkplt='snakemake --rulegraph | graph-easy --as boxart'
 alias mvsnk='mv snakejob.* Logs/'
 
+# SSHFS
+alias mount-mordor='sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/People/hawleyj/ $HOME/Mordor; sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/Projects/RawData/ $HOME/MordorData;'
+alias umount-mordor='umount -f $HOME/Mordor; umount -f $HOME/MordorData;'
+
 # Functions
 function extract {
     if [ -z "$1" ]; then

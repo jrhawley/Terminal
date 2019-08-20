@@ -26,6 +26,7 @@ if [ $SHELL == "bash" ]; then
     fi
 elif [ $SHELL == "zsh" ]; then
     backup_cp zshrc $HOME/.zshrc
+    source $HOME/.zshrc
 fi
 
 echo "Done installation"
