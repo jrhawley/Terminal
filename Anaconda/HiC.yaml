@@ -93,6 +93,7 @@ dependencies:
   - htslib=1.9
   - icu=58.2
   - idna=2.8
+  - igvtools=2.5.3
   - intervaltree=3.0.2
   - jinja2=2.10.1
   - jpeg=9c

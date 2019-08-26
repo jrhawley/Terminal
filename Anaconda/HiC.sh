@@ -56,3 +56,4 @@ conda install bioconda::pairtools
 conda install bioconda::seqkit
 conda install tqdm
 conda install conda-forge::eigen
+conda install bioconda::igvtools
