@@ -42,6 +42,10 @@ alias gst='git status'
 alias glg='git log --all --graph'
 alias gbl='git branch --list'
 
+
+# Anaconda
+alias sce='conda env export --no-builds'
+
 # Snakemake
 alias snkplt='snakemake --rulegraph | graph-easy --as boxart'
 alias mvsnk='mv snakejob.* Logs/'
