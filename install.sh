@@ -2,7 +2,7 @@
 STDFILES=(bash_aliases vimrc tmux.conf)
 
 function backup_cp {
-    today=$(date -I)
+    today=$(date "+%Y-%m-%d")
     if [ -e $2 ]; then
         mv $2 $2.${today}.bak
     fi
@@ -26,6 +26,7 @@ if [ $SHELL == "bash" ]; then
     fi
 elif [ $SHELL == "zsh" ]; then
     backup_cp zshrc $HOME/.zshrc
+    source $HOME/.zshrc
 fi
 
 echo "Done installation"

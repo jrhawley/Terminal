@@ -33,14 +33,26 @@ alias qsd='qstat -q download.q -u "*"'
 alias qsH='qstat -q highmem.q -u "*"'
 alias qst='qstat'
 
+# Slurm
+alias sr='salloc -c 1 -t 10:00:00 --mem=6G'
+alias sst='squeue'
+
 # Git
 alias gst='git status'
 alias glg='git log --all --graph'
 alias gbl='git branch --list'
 
+
+# Anaconda
+alias sce='conda env export --no-builds'
+
 # Snakemake
 alias snkplt='snakemake --rulegraph | graph-easy --as boxart'
 alias mvsnk='mv snakejob.* Logs/'
+
+# SSHFS
+alias mount-mordor='sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/People/hawleyj/ $HOME/Mordor; sshfs hawleyj@mordor:/mnt/work1/users/lupiengroup/Projects/RawData/ $HOME/MordorData;'
+alias umount-mordor='umount -f $HOME/Mordor; umount -f $HOME/MordorData;'
 
 # Functions
 function extract {
@@ -85,3 +97,6 @@ function pycd {
     pushd `python -c "import os.path, $1; print(os.path.dirname($1.__file__))"`;
 };
 
+function qsha {
+    find -type f -exec shasum '{}' \;
+};
