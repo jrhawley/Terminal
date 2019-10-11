@@ -58,3 +58,4 @@ conda install tqdm
 conda install conda-forge::eigen
 conda install bioconda::igvtools
 conda install conda-forge::r-rcircos
+conda install conda-forge::r-upsetr
