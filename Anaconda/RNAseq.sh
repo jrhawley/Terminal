@@ -13,3 +13,4 @@ conda install bioconda::fastqc
 conda install bioconda::trim-galore
 
 conda install r-ggextra
+conda install bioconductor-sva

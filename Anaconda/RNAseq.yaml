@@ -42,6 +42,7 @@ dependencies:
   - bioconductor-s4vectors=0.20.1
   - bioconductor-shortread=1.40.0
   - bioconductor-summarizedexperiment=1.12.0
+  - bioconductor-sva=3.30.1
   - bioconductor-xvector=0.22.0
   - bioconductor-zlibbioc=1.28.0
   - bwidget=1.9.11
