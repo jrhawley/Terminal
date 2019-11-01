@@ -18,26 +18,7 @@ conda install jrhawley::hicup #(v0.7.2)
 
 conda install scipy matplotlib
 
-# TADbit
-#   IMP package
-conda install -c salilab imp
-#   MCL tool
-pushd $HOME/Source
-curl -O https://micans.org/mcl/src/mcl-latest.tar.gz
-tar -xvzf mcl-latest.tar.gz
-pushd mcl-14-137
-./configure --prefix=$CONDA_PREFIX
-make install
-popd
-#   TADbit
-wget -O TADbit-0.4.tar.gz https://github.com/3DGenomes/TADbit/archive/v0.4.tar.gz
-tar -xvzf TADbit-0.4.tar.gz
-pushd TADbit-0.4
-#   was designed for Python 2, had to edit print statements to have brackets, and `raw_input` -> `input`
-python setup.py install
-popd; popd
-
-conda install bioconda::bedtools=2.23.0
+conda install bioconda::bedtools
 conda install bioconda::biopython
 conda install bioconda::bioconductor-genomicranges
 conda install r-argparse r-data.table
@@ -59,3 +40,6 @@ conda install conda-forge::eigen
 conda install bioconda::igvtools
 conda install conda-forge::r-rcircos
 conda install conda-forge::r-upsetr
+
+conda install jrhawley::pyinterval
+
