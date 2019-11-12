@@ -1,0 +1,3 @@
+[submodule "bashlib"]
+	path = bashlib
+	url = git@github.com:vergissberlin/bashlib.git
