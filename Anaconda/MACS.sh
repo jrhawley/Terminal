@@ -1,1 +1,5 @@
-conda create -n MACS python=2.7.9 bioconda::macs2
+conda create -n MACS
+conda activate MACS
+
+conda install bioconda::macs2=2.2.4
+

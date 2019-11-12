@@ -1,14 +1,17 @@
-conda create -n RNAseq bioconductor-ruvseq
+conda create -n RNAseq
 conda activate RNAseq
 
-conda install snakemake-minimal
-conda install r-ggplot2
-conda install kallisto
-conda install r-sleuth
-
-conda install bioconda::rseqc
-conda install bioconda::sambamba
-conda install bioconda::multiqc
-conda install bioconda::fastqc
-conda install bioconda::trim-galore
-
+conda install snakemake-minimal \
+    r-ggplot2 \
+    kallisto \
+    r-sleuth \
+    rseqc \
+    sambamba \
+    multiqc \
+    fastqc \
+    trim-galore \
+    bioconductor-edger \
+    bioconductor-deseq2 \
+    r-data.table \
+    r-ggextra \
+    bioconductor-sva
