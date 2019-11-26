@@ -29,28 +29,14 @@ values."
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
+   ;; <M-m f e R> (Emacs style) to install them.
    dotspacemacs-configuration-layers
    '(
      python
      markdown
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     ivy
-     auto-completion
-     ;; better-defaults
+     helm
      emacs-lisp
-     git
-     markdown
      org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     ;; syntax-checking
-     version-control
      personal-config
      )
    ;; List of additional packages that will be installed without being
@@ -61,7 +47,10 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages
+   '(
+     org-projectile
+     )
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -120,8 +109,7 @@ values."
    ;; `recents' `bookmarks' `projects' `agenda' `todos'."
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
-   dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 7))
+   dotspacemacs-startup-lists '((recents . 5))
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
@@ -135,11 +123,12 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+   dotspacemacs-default-font '("Consolas"
+                               :size 14
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-offset 2
+                               :powerline-scale 1.2)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -223,7 +212,7 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup nil
+   dotspacemacs-fullscreen-at-startup t
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
@@ -262,7 +251,12 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers '(:relative nil
+                               :disabled-for-modes dired-mode
+                               doc-view-mode
+                               org-mode
+                               pdf-view-mode
+                               :size-limit-kb 1000)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -279,7 +273,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
@@ -293,7 +287,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup "trailing"
    ))
 
 (defun dotspacemacs/user-init ()
@@ -324,10 +318,48 @@ you should place your code here."
  '(ess-indent-with-fancy-comments nil)
  '(org-agenda-files
    (quote
-    ("~/OneDrive/Documents/Org/Wittenberg.org" "~/OneDrive/Documents/Org/Meth-Norm.org" "~/OneDrive/Documents/Org/MBP-Tech-Talks.org" "~/OneDrive/Documents/Org/Helsinki.org" "~/OneDrive/Documents/Org/General.org" "~/OneDrive/Documents/Org/Funding.org" "~/OneDrive/Documents/Org/Davos.org" "~/OneDrive/Documents/Org/Conferences-Talks.org" "~/OneDrive/Documents/Org/Babylon.org")))
+    ("c:/Users/james/OneDrive/Documents/Org/Inbox.org" "C:/Users/james/OneDrive/Documents/Org/Wittenberg.org" "C:/Users/james/OneDrive/Documents/Org/Meth-Norm.org" "C:/Users/james/OneDrive/Documents/Org/MBP-Tech-Talks.org" "C:/Users/james/OneDrive/Documents/Org/Helsinki.org" "C:/Users/james/OneDrive/Documents/Org/Funding.org" "C:/Users/james/OneDrive/Documents/Org/Davos.org" "C:/Users/james/OneDrive/Documents/Org/Conferences-Talks.org" "C:/Users/james/OneDrive/Documents/Org/Babylon.org")))
+ '(org-agenda-prefix-format
+   (quote
+    ((agenda . "  %?-12t% s")
+     (todo . " %i %-12:c")
+     (tags . " %i %-12:c")
+     (search . " %i %-12:c"))))
+ '(org-capture-bookmark nil)
+ '(org-complete-tags-always-offer-all-agenda-tags t)
+ '(org-datetree-add-timestamp (quote active))
+ '(org-default-notes-file "C:/Users/james/OneDrive/Documents/Org/Inbox.org")
+ '(org-directory "C:/Users/james/OneDrive/Documents/Org/")
+ '(org-projectile-projects-file "C:/Users/james/OneDrive/Documents/Org/Inbox.org")
+ '(org-refile-targets nil)
+ '(org-tag-alist nil)
+ '(org-tag-persistent-alist
+   (quote
+    ((:startgroup)
+     ("@online" . 111)
+     ("@offline" . 79)
+     ("@cluster" . 99)
+     (:endgroup)
+     (:startgroup)
+     ("@home" . 104)
+     ("@train" . 116)
+     ("@work" . 119)
+     ("@errand" . 101)
+     (:endgroup)
+     (:startgroup)
+     ("Davos" . 68)
+     ("Babylon" . 66)
+     ("Wittenberg" . 87)
+     ("Lab" . 76)
+     ("Genoa" . 71)
+     ("MBPTechTalks" . 77)
+     (:endgroup))))
+ '(org-todo-keywords
+   (quote
+    ((sequence "TODO(t)" "DEFERRED(w@/!)" "|" "DONE(d!)" "SOMEDAY(s)"))))
  '(package-selected-packages
    (quote
-    (ess-R-data-view pandoc ess snakemake-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional cython-mode anaconda-mode pythonic mmm-mode markdown-toc markdown-mode gh-md ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-make google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))))
+    (org-projectile helm-projectile projectile orgit org-pomodoro alert log4e magit-gitflow magit-popup git-timemachine git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ evil-magit magit git-commit smeargle tablist org-category-capture org-present gntp org-mime org-download htmlize gnuplot gitconfig-mode gitattributes-mode transient git-messenger git-link git-gutter with-editor diff-hl auto-complete pdf-tools helm-themes helm-swoop helm-pydoc helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck auto-dictionary ace-jump-helm-line helm helm-core ess-R-data-view pandoc ess snakemake-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional cython-mode anaconda-mode pythonic mmm-mode markdown-toc markdown-mode gh-md ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-make google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
