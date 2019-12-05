@@ -22,20 +22,10 @@ alias .5='cd ../../../../../'    # Go back 5 directory levels
 alias .6='cd ../../../../../../' # Go back 6 directory levels
 alias ~="cd ~"                   # Go Home
 
-# SGE
-alias qrL='qlogin -q lupiengroup -l h_vmem=5G -l mem_requested=5G'
-alias qrLM='qlogin -q lupiengroup -l h_vmem=15G -l mem_requested=15G'
-alias qrl='qlogin -q light.q'
-alias qrd='qlogin -q download.q'
-alias qsL='qstat -q lupiengroup -u "*"'
-alias qsl='qstat -q light.q -u "*"'
-alias qsd='qstat -q download.q -u "*"'
-alias qsH='qstat -q highmem.q -u "*"'
-alias qst='qstat'
-
 # Slurm
-alias sr='salloc -c 1 -t 10:00:00 --mem=6G'
 alias sst='squeue'
+alias sr='salloc -c 1 -t 10:00:00 --mem=6G'
+alias srM='salloc -c 1 -t 10:00:00 --mem=16G'
 
 # Git
 alias gst='git status'
