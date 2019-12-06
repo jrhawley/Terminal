@@ -25,7 +25,7 @@ conda install r-argparse r-data.table
 conda install r-devtools
 conda install r-nlme r-mgcv r-rspectra
 conda install r-ggplot2
-conda install bioconda::multiqc=1.7
+conda install bioconda::multiqc
 conda install bioconda::seqtk
 conda install bamtools
 
@@ -43,3 +43,4 @@ conda install conda-forge::r-upsetr
 
 conda install jrhawley::pyinterval
 
+conda install seaborn
