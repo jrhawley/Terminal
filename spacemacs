@@ -38,6 +38,7 @@ values."
      emacs-lisp
      org
      personal-config
+     pdf-tools
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -318,7 +319,7 @@ you should place your code here."
  '(ess-indent-with-fancy-comments nil)
  '(org-agenda-files
    (quote
-    ("c:/Users/james/OneDrive/Documents/Org/Inbox.org" "C:/Users/james/OneDrive/Documents/Org/Wittenberg.org" "C:/Users/james/OneDrive/Documents/Org/Meth-Norm.org" "C:/Users/james/OneDrive/Documents/Org/MBP-Tech-Talks.org" "C:/Users/james/OneDrive/Documents/Org/Helsinki.org" "C:/Users/james/OneDrive/Documents/Org/Funding.org" "C:/Users/james/OneDrive/Documents/Org/Davos.org" "C:/Users/james/OneDrive/Documents/Org/Conferences-Talks.org" "C:/Users/james/OneDrive/Documents/Org/Babylon.org")))
+    ("~/OneDrive/Documents/Org/Lab.org" "~/OneDrive/Documents/Org/Genoa.org" "~/OneDrive/Documents/Org/Personal.org" "~/OneDrive/Documents/Org/Antananarivo.org" "~/OneDrive/Documents/Org/Inbox.org" "~/OneDrive/Documents/Org/Wittenberg.org" "~/OneDrive/Documents/Org/Meth-Norm.org" "~/OneDrive/Documents/Org/MBP-Tech-Talks.org" "~/OneDrive/Documents/Org/Helsinki.org" "~/OneDrive/Documents/Org/Funding.org" "~/OneDrive/Documents/Org/Davos.org" "~/OneDrive/Documents/Org/Conferences-Talks.org" "~/OneDrive/Documents/Org/Babylon.org")))
  '(org-agenda-prefix-format
    (quote
     ((agenda . "  %?-12t% s")
@@ -331,7 +332,18 @@ you should place your code here."
  '(org-default-notes-file "C:/Users/james/OneDrive/Documents/Org/Inbox.org")
  '(org-directory "C:/Users/james/OneDrive/Documents/Org/")
  '(org-projectile-projects-file "C:/Users/james/OneDrive/Documents/Org/Inbox.org")
- '(org-refile-targets nil)
+ '(org-refile-targets
+   (quote
+    ((org-agenda-files :tag . "Lab")
+     (org-agenda-files :tag . "Personal")
+     (org-agenda-files :tag . "MethNorm")
+     (org-agenda-files :tag . "Helsinki")
+     (org-agenda-files :tag . "Antananarivo")
+     (org-agenda-files :tag . "Blog")
+     (org-agenda-files :tag . "Genoa")
+     (org-agenda-files :tag . "Personal")
+     (org-agenda-files :tag . "Babylon")
+     (org-agenda-files :tag . "Davos"))))
  '(org-tag-alist nil)
  '(org-tag-persistent-alist
    (quote
@@ -353,6 +365,7 @@ you should place your code here."
      ("Lab" . 76)
      ("Genoa" . 71)
      ("MBPTechTalks" . 77)
+     ("Antananarivo" . 65)
      (:endgroup))))
  '(org-todo-keywords
    (quote
