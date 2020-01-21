@@ -408,11 +408,10 @@ you should place your code here."
  '(org-capture-bookmark nil)
  '(org-complete-tags-always-offer-all-agenda-tags t)
  '(org-datetree-add-timestamp (quote active))
- '(org-default-notes-file "C:/Users/james/OneDrive/Documents/Org/Inbox.org")
- '(org-directory "C:/Users/james/OneDrive/Documents/Org/")
+ '(org-directory "~/Org/")
  '(org-modules
    (quote
-    (org-bbdb org-bibtex org-eww org-gnus org-habit org-info org-notify)))
+    (org-bbdb org-bibtex org-docview org-eww org-gnus org-habit org-bookmark org-checklist org-choose org-git-link org-mac-iCal org-mac-link org-notify org-panel org-toc)))
  '(org-tag-alist nil)
  '(org-tag-persistent-alist
    (quote
