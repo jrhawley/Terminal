@@ -37,7 +37,6 @@ values."
      helm
      emacs-lisp
      org
-     ;; personal-config
      pdf-tools
      spell-checking
      )
@@ -321,25 +320,82 @@ you should place your code here."
  '(ispell-program-name "ISPELL.EXE")
  '(org-agenda-custom-commands
    (quote
-    (("qs" "Shopping" tags-todo "+shopping+@errand"
-      ((org-agenda-overriding-header "Shopping Items")))
-     ("qg" "Groceries" tags-todo "+groceries+@errand"
-      ((org-agenda-overriding-header "Groceries")))
-     ("qh" "Home" agenda "@home"
+    (("q" . "Location")
+     ("qs" "Shopping" agenda ""
+      ((org-agenda-overriding-header "Shopping Items")
+       (org-agenda-tag-filter-preset
+        (quote
+         ("+shopping" "+@errand")))))
+     ("qg" "Groceries" agenda ""
+      ((org-agenda-overriding-header "Groceries")
+       (org-agenda-tag-filter-preset
+        (quote
+         ("+groceries" "+@errand")))))
+     ("qh" "Home" agenda ""
       ((org-agenda-overriding-header "Home To Do List")
        (org-agenda-tag-filter-preset
         (quote
          ("+@home")))))
-     ("qt" "Train" agenda "@train"
+     ("qe" "Errands" agenda ""
+      ((org-agenda-overriding-header "Errands to Run")
+       (org-agenda-tag-filter-preset
+        (quote
+         ("+@errand")))))
+     ("qt" "Train" agenda ""
       ((org-agenda-overriding-header "Train To Do List")
        (org-agenda-tag-filter-preset
         (quote
          ("+@train")))))
-     ("qw" "Work" agenda "@work"
+     ("qw" "Work" agenda ""
       ((org-agenda-overriding-header "Work To Do List")
        (org-agenda-tag-filter-preset
         (quote
-         ("+@work|+@cluster"))))))))
+         ("+@work" "+@cluster")))))
+     ("p" . "Projects")
+     ("pd" "Davos" agenda ""
+      ((org-agenda-overriding-header "Project: Davos")
+       (org-agenda-category-filter-preset
+        (quote
+         ("+Davos")))))
+     ("pb" "Babylon" agenda ""
+      ((org-agenda-overriding-header "Project: Babylon")
+       (org-agenda-category-filter-preset
+        (quote
+         ("+Babylon")))))
+     ("pw" "Wedding" agenda ""
+      ((org-agenda-overriding-header "Wedding Planner")
+       (org-agenda-category-filter-preset
+        (quote
+         ("+Wedding")))))
+     ("c" . "Contacts")
+     ("cm" "Mom" agenda ""
+      ((org-agenda-span
+        (quote fortnight))
+       (org-agenda-overriding-header "Mom")
+       (org-agenda-regexp-filter-preset
+        (quote
+         ("+@mom" "+Mom")))))
+     ("cd" "Dad" agenda ""
+      ((org-agenda-overriding-header "Dad")
+       (org-agenda-span
+        (quote fortnight))
+       (org-agenda-regexp-filter-preset
+        (quote
+         ("+@dad" "+Dad")))))
+     ("ca" "Alison" agenda ""
+      ((org-agenda-span
+        (quote fortnight))
+       (org-agenda-overriding-header "Alison")
+       (org-agenda-regexp-filter-preset
+        (quote
+         ("+@alison" "+Alison")))))
+     ("cs" "Stephen" agenda ""
+      ((org-agenda-overriding-header "Stephen")
+       (org-agenda-span
+        (quote fortnight))
+       (org-agenda-regexp-filter-preset
+        (quote
+         ("+@stephen" "+Stephen"))))))))
  '(org-agenda-files
    (quote
     ("~/Org/Books.org" "~/Org/Medical.org" "~/Org/Wedding.org" "~/Org/Food.org" "~/Org/Blog.org" "~/Org/Wittenberg.org" "~/Org/Personal.org" "~/Org/Meth-Norm.org" "~/Org/MBP-Tech-Talks.org" "~/Org/MBPGSA.org" "~/Org/Lab.org" "~/Org/Inbox.org" "~/Org/Helsinki.org" "~/Org/Genoa.org" "~/Org/Funding.org" "~/Org/Davos.org" "~/Org/Conferences-Talks.org" "~/Org/Babylon.org" "~/Org/Antananarivo.org")))
@@ -357,19 +413,6 @@ you should place your code here."
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-eww org-gnus org-habit org-info org-notify)))
- '(org-projectile-projects-file "C:/Users/james/OneDrive/Documents/Org/Inbox.org")
- '(org-refile-targets
-   (quote
-    ((org-agenda-files :tag . "Lab")
-     (org-agenda-files :tag . "Personal")
-     (org-agenda-files :tag . "MethNorm")
-     (org-agenda-files :tag . "Helsinki")
-     (org-agenda-files :tag . "Antananarivo")
-     (org-agenda-files :tag . "Blog")
-     (org-agenda-files :tag . "Genoa")
-     (org-agenda-files :tag . "Personal")
-     (org-agenda-files :tag . "Babylon")
-     (org-agenda-files :tag . "Davos"))))
  '(org-tag-alist nil)
  '(org-tag-persistent-alist
    (quote
@@ -396,10 +439,10 @@ you should place your code here."
      (:endgroup))))
  '(org-todo-keywords
    (quote
-    ((sequence "TODO(t)" "DEFERRED(w@/!)" "|" "DONE(d!)" "DELEGATED(D@/!)" "SOMEDAY(s)"))))
+    ((sequence "TODO(t)" "DEFERRED(w@/!)" "DELEGATED(D@/!)" "|" "DONE(d!)" "SOMEDAY(s)" "CANCELLED(C@/!)"))))
  '(package-selected-packages
    (quote
-    (helm-ispell org-projectile helm-projectile projectile orgit org-pomodoro alert log4e magit-gitflow magit-popup git-timemachine git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ evil-magit magit git-commit smeargle tablist org-category-capture org-present gntp org-mime org-download htmlize gnuplot gitconfig-mode gitattributes-mode transient git-messenger git-link git-gutter with-editor diff-hl auto-complete pdf-tools helm-themes helm-swoop helm-pydoc helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck auto-dictionary ace-jump-helm-line helm helm-core ess-R-data-view pandoc ess snakemake-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional cython-mode anaconda-mode pythonic mmm-mode markdown-toc markdown-mode gh-md ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-make google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))))
+    (helm-ispell orgit org-pomodoro alert log4e magit-gitflow magit-popup git-timemachine git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ evil-magit magit git-commit smeargle tablist org-category-capture org-present gntp org-mime org-download htmlize gnuplot gitconfig-mode gitattributes-mode transient git-messenger git-link git-gutter with-editor diff-hl auto-complete pdf-tools helm-themes helm-swoop helm-pydoc helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck auto-dictionary ace-jump-helm-line helm helm-core ess-R-data-view pandoc ess snakemake-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional cython-mode anaconda-mode pythonic mmm-mode markdown-toc markdown-mode gh-md ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-make google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
