@@ -32,24 +32,45 @@ values."
    ;; <M-m f e R> (Emacs style) to install them.
    dotspacemacs-configuration-layers
    '(
+     ;; org-mode
+     org
+     ;; typing
+     (spell-checking :variables spell-checking-enable-by-default nil)
+     ;; search
+     helm
+     ;; languages
      python
      markdown
-     helm
      emacs-lisp
-     org
+     latex
+     rust
+     html
+     yaml
+     ess
+     ;; papers and PDFs
      pdf-tools
-     spell-checking
+     bibtex
+     ;; other
+     osx
+     git
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages
+   '(
+     ;; org-capture templates
+     org-starter
+     org-reverse-datetree
+     org-noter
+     )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages
    '(
+     yasnippet
      org-projectile
      )
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -118,18 +139,24 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light)
+   dotspacemacs-themes
+   '(
+     spacemacs-dark
+     spacemacs-light
+     )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Consolas"
-                               :size 14
-                               :weight normal
-                               :width normal
-                               :powerline-offset 2
-                               :powerline-scale 1.2)
+   dotspacemacs-default-font
+   '(
+     "Consolas"
+     :size 14
+     :weight normal
+     :width normal
+     :powerline-offset 2
+     :powerline-scale 1.2
+     )
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -213,14 +240,14 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t
+   dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -252,12 +279,15 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers '(:relative nil
-                               :disabled-for-modes dired-mode
-                               doc-view-mode
-                               org-mode
-                               pdf-view-mode
-                               :size-limit-kb 1000)
+   dotspacemacs-line-numbers
+   '(
+     :relative nil
+     :disabled-for-modes dired-mode
+     doc-view-mode
+     org-mode
+     pdf-view-mode
+     :size-limit-kb 1000
+     )
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -398,7 +428,7 @@ you should place your code here."
          ("+@stephen" "+Stephen"))))))))
  '(org-agenda-files
    (quote
-    ("~/Org/Books.org" "~/Org/Medical.org" "~/Org/Wedding.org" "~/Org/Food.org" "~/Org/Blog.org" "~/Org/Wittenberg.org" "~/Org/Personal.org" "~/Org/Meth-Norm.org" "~/Org/MBP-Tech-Talks.org" "~/Org/MBPGSA.org" "~/Org/Lab.org" "~/Org/Inbox.org" "~/Org/Helsinki.org" "~/Org/Genoa.org" "~/Org/Funding.org" "~/Org/Davos.org" "~/Org/Conferences-Talks.org" "~/Org/Babylon.org" "~/Org/Antananarivo.org")))
+    ("~/Org/Antananarivo.org" "~/Org/Babylon.org" "~/Org/Blog.org" "~/Org/Books.org" "~/Org/Conferences-Talks.org" "~/Org/Davos.org" "~/Org/Food.org" "~/Org/Funding.org" "~/Org/Genoa.org" "~/Org/Helsinki.org" "~/Org/Inbox.org" "~/Org/Lab.org" "~/Org/MBP-Tech-Talks.org" "~/Org/MBPGSA.org" "~/Org/Medical.org" "~/Org/Meth-Norm.org" "~/Org/Personal.org" "~/Org/Wedding.org" "~/Org/Wittenberg.org")))
  '(org-agenda-prefix-format
    (quote
     ((agenda . "  %?-12t% s")
@@ -408,10 +438,12 @@ you should place your code here."
  '(org-capture-bookmark nil)
  '(org-complete-tags-always-offer-all-agenda-tags t)
  '(org-datetree-add-timestamp (quote active))
+ '(org-default-notes-file "~/Org/Inbox.org")
  '(org-directory "~/Org/")
  '(org-modules
    (quote
-    (org-bbdb org-bibtex org-docview org-eww org-gnus org-habit org-bookmark org-checklist org-choose org-git-link org-mac-iCal org-mac-link org-notify org-panel org-toc)))
+    (org-bbdb org-bibtex org-eww org-gnus org-habit org-info org-notify)))
+ '(org-startup-indented t)
  '(org-tag-alist nil)
  '(org-tag-persistent-alist
    (quote
@@ -438,10 +470,10 @@ you should place your code here."
      (:endgroup))))
  '(org-todo-keywords
    (quote
-    ((sequence "TODO(t)" "DEFERRED(w@/!)" "DELEGATED(D@/!)" "|" "DONE(d!)" "SOMEDAY(s)" "CANCELLED(C@/!)"))))
+    ((sequence "TODO(t)" "DEFERRED(w@/!)" "DELEGATED(D@/!)" "|" "DONE(d!)" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
  '(package-selected-packages
    (quote
-    (helm-ispell orgit org-pomodoro alert log4e magit-gitflow magit-popup git-timemachine git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ evil-magit magit git-commit smeargle tablist org-category-capture org-present gntp org-mime org-download htmlize gnuplot gitconfig-mode gitattributes-mode transient git-messenger git-link git-gutter with-editor diff-hl auto-complete pdf-tools helm-themes helm-swoop helm-pydoc helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck auto-dictionary ace-jump-helm-line helm helm-core ess-R-data-view pandoc ess snakemake-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional cython-mode anaconda-mode pythonic mmm-mode markdown-toc markdown-mode gh-md ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-make google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))))
+    (yaml-mode web-mode toml-mode tagedit slim-mode scss-mode sass-mode reveal-in-osx-finder racer pug-mode pbcopy osx-trash osx-dictionary org-starter org-reverse-datetree org-ref key-chord org-noter launchctl helm-css-scss helm-bibtex parsebib haml-mode gitignore-mode fuzzy flycheck-rust ess-smart-equals ctable julia-mode emmet-mode company-web web-completion-data company-statistics company-auctex company-anaconda company cargo rust-mode biblio biblio-core auctex ac-ispell helm-ispell orgit org-pomodoro alert log4e magit-gitflow magit-popup git-timemachine git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ evil-magit magit git-commit smeargle tablist org-category-capture org-present gntp org-mime org-download htmlize gnuplot gitconfig-mode gitattributes-mode transient git-messenger git-link git-gutter with-editor diff-hl auto-complete pdf-tools helm-themes helm-swoop helm-pydoc helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-company helm-ag flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck auto-dictionary ace-jump-helm-line helm helm-core ess-R-data-view pandoc ess snakemake-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional cython-mode anaconda-mode pythonic mmm-mode markdown-toc markdown-mode gh-md ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra indent-guide hydra lv hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-make google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
