@@ -468,7 +468,7 @@ you should place your code here."
      ("Genoa" . 71)
      ("MBPTechTalks" . 77)
      ("Antananarivo" . 65)
-    )))
+     )))
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t)" "DEFERRED(w@/!)" "DELEGATED(D@/!)" "|" "DONE(d!)" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
