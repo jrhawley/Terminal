@@ -64,6 +64,8 @@ values."
      org-starter
      org-reverse-datetree
      org-noter
+     ;; diff programs
+     vdiff
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -436,6 +438,11 @@ you should place your code here."
      (tags . " %i %-12:c")
      (search . " %i %-12:c"))))
  '(org-capture-bookmark nil)
+ '(org-capture-templates
+   (quote
+    (("t" "Todo" entry
+      (file "~/Org/Inbox.org")
+      (file "~/Org/capture-templates/todo.org")))))
  '(org-complete-tags-always-offer-all-agenda-tags t)
  '(org-datetree-add-timestamp (quote active))
  '(org-default-notes-file "~/Org/Inbox.org")
@@ -443,23 +450,17 @@ you should place your code here."
  '(org-modules
    (quote
     (org-bbdb org-bibtex org-eww org-gnus org-habit org-info org-notify)))
- '(org-startup-indented t)
  '(org-tag-alist nil)
  '(org-tag-persistent-alist
    (quote
-    ((:startgroup)
-     ("@online" . 111)
+    (("@online" . 111)
      ("@offline" . 79)
      ("@cluster" . 99)
-     (:endgroup)
-     (:startgroup)
      ("@home" . 104)
      ("@train" . 116)
      ("@work" . 119)
      ("@errand" . 101)
      ("@phone" . 112)
-     (:endgroup)
-     (:startgroup)
      ("Davos" . 68)
      ("Babylon" . 66)
      ("Wittenberg" . 87)
@@ -467,7 +468,7 @@ you should place your code here."
      ("Genoa" . 71)
      ("MBPTechTalks" . 77)
      ("Antananarivo" . 65)
-     (:endgroup))))
+    )))
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t)" "DEFERRED(w@/!)" "DELEGATED(D@/!)" "|" "DONE(d!)" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
