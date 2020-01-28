@@ -440,7 +440,15 @@ you should place your code here."
  '(org-capture-bookmark nil)
  '(org-capture-templates
    (quote
-    (("t" "Todo" entry
+    (("s" "Seminar" entry
+      (file "~/Org/Inbox.org")
+      (file "~/Org/capture-templates/seminar.org")
+      :time-prompt t)
+     ("m" "Meeting" entry
+      (file "~/Org/Inbox.org")
+      (file "~/Org/capture-templates/meeting.org")
+      :time-prompt t)
+     ("t" "Todo" entry
       (file "~/Org/Inbox.org")
       (file "~/Org/capture-templates/todo.org")))))
  '(org-complete-tags-always-offer-all-agenda-tags t)
@@ -467,8 +475,7 @@ you should place your code here."
      ("Lab" . 76)
      ("Genoa" . 71)
      ("MBPTechTalks" . 77)
-     ("Antananarivo" . 65)
-     )))
+     ("Antananarivo" . 65))))
  '(org-todo-keywords
    (quote
     ((sequence "TODO(t)" "DEFERRED(w@/!)" "DELEGATED(D@/!)" "|" "DONE(d!)" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
