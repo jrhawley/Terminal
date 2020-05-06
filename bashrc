@@ -125,6 +125,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# pathmunge function for adding to PATH
+pathmunge () {
+	if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)" ; then
+	   if [ "$2" = "after" ] ; then
+		  PATH=$PATH:$1
+	   else
+		  PATH=$1:$PATH
+	   fi
+	fi
+}
+
 # VS Code Insider Remote SSH
 pathmunge "/c/Users/james/AppData/Local/Programs/Microsoft VS Code Insiders/bin" after
 
