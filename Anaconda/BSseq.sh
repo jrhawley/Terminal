@@ -67,3 +67,8 @@ conda install bioconda::bioconductor-illuminahumanmethylation450kanno.ilmn12.hg1
 conda install bioconductor-bsgenome.hsapiens.ucsc.hg38
 conda install bioconductor-bsgenome.hsapiens.ucsc.hg19
 conda install scipy
+conda install umap-learn
+
+conda install seaborn
+conda install conda-forge::r-rmpi
+conda install r-batchtools

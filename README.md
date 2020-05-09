@@ -5,7 +5,9 @@ A collection of files that I use across my Mac and Linux computers to keep setti
 ## Installation
 
 ```shell
-sh install.sh
+git clone --recursive git@github.com:jrhawley/Terminal.git
+cd Terminal/
+./install.sh
 ```
 
 ## Mac keyboard settings
@@ -13,31 +15,10 @@ sh install.sh
 Mac has some unconventional keyboard settings, and they can be addressed by these StackOverflow questions:
 
 * [Link 1](https://apple.stackexchange.com/questions/12997/can-home-and-end-keys-be-mapped-when-using-terminal)
-* [Link2](http://apple.stackexchange.com/questions/16135/remap-home-and-end-to-beginning-and-end-of-line?answertab=votes#tab-top)
+* [Link 2](http://apple.stackexchange.com/questions/16135/remap-home-and-end-to-beginning-and-end-of-line?answertab=votes#tab-top)
 
 Note that these settings don't apply to the Terminal (or some types of text boxes), so you need to change these settings, independently.
 This can be done by going to Terminal > Preferences > Settings > Keyboard, and setting Home (up left arrow) to `\033OH` and End (down right arrow) to `\033OF`.
-
-## Ubuntu Bash on Windows
-
-A particular colour RGB scheme to customize this terminal emulator are as follows:
-
-* 30, 30, 30
-* 114, 159, 207
-* 0, 128, 0
-* 0, 128, 128
-* 128, 0, 0
-* 128, 0, 128
-* 128, 128, 0
-* 192, 192, 192
-* 128, 128, 128
-* 52, 101, 164
-* 0, 255, 0
-* 0, 255, 255
-* 255, 0, 0
-* 255, 0, 255
-* 255, 255, 0
-* 255, 255, 255
 
 ## Anaconda
 
@@ -48,4 +29,27 @@ These files can be found in `Anaconda/`.
 
 A collection of scripts that are useful for SGE environments can be found here.
 This will be updated to include SLURM and PBS/Torque engines, eventually.
+
+## Terminal theme
+
+| ANSI Colour  | Hex Value |
+| ------------ | --------- |
+| background   | #1E2127   |
+| foreground   | #CDCDCD   |
+| brightBlack  | #5C6370   |
+| brightBlue   | #61AFEF   |
+| brightCyan   | #56B6C2   |
+| brightGreen  | #98C379   |
+| brightPurple | #C678DD   |
+| brightRed    | #E06C75   |
+| brightWhite  | #FFFFFF   |
+| brightYellow | #D19A66   |
+| black        | #000000   |
+| blue         | #61AFEF   |
+| cyan         | #56B6C2   |
+| green        | #98C379   |
+| purple       | #C678DD   |
+| red          | #E06C75   |
+| white        | #ABB2BF   |
+| yellow       | #D19A66   |
 

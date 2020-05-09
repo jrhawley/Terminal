@@ -44,3 +44,7 @@ conda install conda-forge::r-upsetr
 conda install jrhawley::pyinterval
 
 conda install seaborn
+conda install pyvcf
+conda install bioconductor-annotatr
+conda install bioconductor-txdb.hsapiens.ucsc.hg38.knowngene
+conda install bioconductor-org.hs.eg.db
