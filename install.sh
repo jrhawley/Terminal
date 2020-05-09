@@ -1,9 +1,6 @@
 #!/bin/bash
 source bashlib/lib/message.bash
-STDFILES=(bash_aliases vimrc tmux.conf spacemacs)
-
-OTHER_FILES=("emacs.d")
-OTHER_TARGETS=("$HOME/.emacs.d/private/personal-config")
+STDFILES=(bash_aliases vimrc tmux.conf)
 
 function backup_cp {
     messageInfo "$1 -> $2"
