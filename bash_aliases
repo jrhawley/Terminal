@@ -26,7 +26,7 @@ alias ~="cd ~"                   # Go Home
 alias sst='squeue'
 alias sr='salloc -c 1 -t 10:00:00 --mem=6G'
 alias srM='salloc -c 1 -t 10:00:00 --mem=16G'
-alias mvsnk='mv slurm-* Logs/'
+alias mvsnk='for f in $(grep -l "1 of 1 steps (100%) done" slurm-*.out); do mv $f Logs/; done'
 
 # Git
 alias gst='git status'
