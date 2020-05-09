@@ -25,6 +25,7 @@ alias ~="cd ~"                   # Go Home
 # Slurm
 alias sst='squeue'
 alias sr='salloc -c 1 -t 10:00:00 --mem=6G'
+alias srd='salloc -c 1 -t 10:00:00 -p download'
 alias srM='salloc -c 1 -t 10:00:00 --mem=16G'
 alias mvsnk='for f in $(grep -l "1 of 1 steps (100%) done" slurm-*.out); do mv $f Logs/; done'
 
