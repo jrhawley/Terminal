@@ -12,6 +12,7 @@ set expandtab
 set autoindent
 set hlsearch
 set incsearch
+set backspace=2
 syntax on
 
 " NH shortcuts for hiding numbers
