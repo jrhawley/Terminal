@@ -32,24 +32,24 @@ This will be updated to include SLURM and PBS/Torque engines, eventually.
 
 ## Terminal theme
 
-| ANSI Colour  | Hex Value |
-| ------------ | --------- |
-| background   | #1E2127   |
-| foreground   | #CDCDCD   |
-| brightBlack  | #5C6370   |
-| brightBlue   | #61AFEF   |
-| brightCyan   | #56B6C2   |
-| brightGreen  | #98C379   |
-| brightPurple | #C678DD   |
-| brightRed    | #E06C75   |
-| brightWhite  | #FFFFFF   |
-| brightYellow | #D19A66   |
-| black        | #000000   |
-| blue         | #61AFEF   |
-| cyan         | #56B6C2   |
-| green        | #98C379   |
-| purple       | #C678DD   |
-| red          | #E06C75   |
-| white        | #ABB2BF   |
-| yellow       | #D19A66   |
+| ANSI Colour  | Hex Value | RGB Value   |
+| ------------ | --------- | ----------- |
+| background   | #1E2127   | 30,33,39    |
+| foreground   | #CDCDCD   | 205,205,205 |
+| brightBlack  | #5C6370   |             |
+| brightBlue   | #61AFEF   | 97,175,239  |
+| brightCyan   | #56B6C2   | 86,182,194  |
+| brightGreen  | #98C379   | 152,195,121 |
+| brightPurple | #C678DD   | 198,120,221 |
+| brightRed    | #E06C75   | 224,108,117 |
+| brightWhite  | #FFFFFF   | 171,178,191 |
+| brightYellow | #D19A66   | 209,154,102 |
+| black        | #000000   |             |
+| blue         | #61AFEF   | 97,175,239  |
+| cyan         | #56B6C2   | 86,182,194  |
+| green        | #98C379   | 152,195,121 |
+| purple       | #C678DD   | 198,120,221 |
+| red          | #E06C75   | 224,108,117 |
+| white        | #ABB2BF   | 171,178,191 |
+| yellow       | #D19A66   | 209,154,102 |
 
